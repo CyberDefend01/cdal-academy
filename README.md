@@ -47,6 +47,7 @@ supabase/migrations/          Database schema, security rules and seed data
 2. Open **SQL Editor** and run these files in order, pasting in each one's contents:
    - `supabase/migrations/0001_init.sql`: tables, security rules and the three courses
    - `supabase/migrations/0002_public_stats.sql`: public statistics and testimonials functions
+   - `supabase/migrations/0003_course_durations.sql`: sets all courses to 4 weeks
 3. Go to **Authentication → Sign In / Providers** and **turn off "Allow new users to sign up"**. Accounts are created only by admins when they accept an application.
 
 ### 2. Create the first admin
