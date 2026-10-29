@@ -1,0 +1,24 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+/* Institutional dark navy palette */
+@theme {
+  --color-navy-950: #040a17;
+  --color-navy-900: #08132a;
+  --color-navy-800: #0d1c3b;
+  --color-navy-700: #15284f;
+  --color-navy-600: #1f3766;
+}
+
+html {
+  color-scheme: dark;
+}
+
+body {
+  background: var(--color-navy-950);
+  color: var(--color-slate-200);
+}
