@@ -9,6 +9,7 @@ export type ApplyState = {
   message?: string;
   fieldErrors?: Partial<Record<string, string[]>>;
   values?: Record<string, string>;
+  at?: number; // timestamp of the last attempt; remounts the form so selects refill
 };
 
 const optionalText = (max: number) =>
@@ -58,6 +59,7 @@ export async function submitApplication(
       message: "Please fix the highlighted fields.",
       fieldErrors: z.flattenError(parsed.error).fieldErrors,
       values: raw,
+      at: Date.now(),
     };
   }
 
@@ -76,6 +78,7 @@ export async function submitApplication(
       message: "That course is not open for applications.",
       fieldErrors: { course_id: ["Please choose a course."] },
       values: raw,
+      at: Date.now(),
     };
   }
 
@@ -89,6 +92,7 @@ export async function submitApplication(
         status: "error",
         message: "You already have a pending application for this course. We'll be in touch soon.",
         values: raw,
+        at: Date.now(),
       };
     }
     console.error("Application insert failed:", error.code, error.message);
@@ -96,6 +100,7 @@ export async function submitApplication(
       status: "error",
       message: "Something went wrong submitting your application. Please try again.",
       values: raw,
+      at: Date.now(),
     };
   }
 

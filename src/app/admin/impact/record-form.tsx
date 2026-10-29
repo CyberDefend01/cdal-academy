@@ -13,18 +13,19 @@ export function RecordForm({ kind }: { kind: MetricKind }) {
     addMetricRecord.bind(null, kind),
     {},
   );
+  const v = state.values ?? {};
 
   return (
     <details className="rounded-xl border border-white/10 bg-navy-900 [&_summary::-webkit-details-marker]:hidden">
       <summary className="flex cursor-pointer items-center gap-2 px-5 py-3 text-sm font-medium text-cyan-300">
         <Plus className="h-4 w-4" aria-hidden /> Add record
       </summary>
-      <form action={formAction} className="grid gap-4 border-t border-white/10 p-5 sm:grid-cols-2">
+      <form key={state.at} action={formAction} className="grid gap-4 border-t border-white/10 p-5 sm:grid-cols-2">
         {FORM_FIELDS[kind].map((field) => {
           if (field.type === "checkbox") {
             return (
               <label key={field.name} className="flex items-center gap-2 text-sm text-slate-300 sm:col-span-2">
-                <input type="checkbox" name={field.name} className="accent-cyan-400" />
+                <input type="checkbox" name={field.name} defaultChecked={v[field.name] === "on"} className="accent-cyan-400" />
                 {field.label}
               </label>
             );
@@ -37,9 +38,9 @@ export function RecordForm({ kind }: { kind: MetricKind }) {
               {field.label}
               {field.required && <span className="text-rose-300"> *</span>}
               {field.type === "textarea" ? (
-                <textarea name={field.name} rows={3} className={inputClass} />
+                <textarea name={field.name} rows={3} defaultValue={v[field.name]} className={inputClass} />
               ) : field.type === "select" ? (
-                <select name={field.name} required={field.required} defaultValue="" className={inputClass}>
+                <select name={field.name} required={field.required} defaultValue={v[field.name] ?? ""} className={inputClass}>
                   <option value="">Select...</option>
                   {field.options?.map((o) => (
                     <option key={o} value={o}>
@@ -51,6 +52,7 @@ export function RecordForm({ kind }: { kind: MetricKind }) {
                 <input
                   name={field.name}
                   type={field.type}
+                  defaultValue={v[field.name]}
                   step={field.step}
                   required={field.required}
                   className={inputClass}
@@ -74,7 +76,7 @@ export function RecordForm({ kind }: { kind: MetricKind }) {
             </span>
           )}
           {state.ok && (
-            <span key={state.savedAt} className="flex items-center gap-1.5 text-sm text-emerald-300">
+            <span className="flex items-center gap-1.5 text-sm text-emerald-300">
               <CircleCheck className="h-4 w-4" aria-hidden /> Saved
             </span>
           )}

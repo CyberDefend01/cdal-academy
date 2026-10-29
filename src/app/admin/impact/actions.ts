@@ -14,7 +14,12 @@ import {
   type MetricKind,
 } from "./fields";
 
-export type MetricFormState = { ok?: boolean; error?: string; savedAt?: number };
+export type MetricFormState = {
+  ok?: boolean;
+  error?: string;
+  at?: number; // timestamp of the last attempt; remounts the form so selects refill
+  values?: Record<string, string>;
+};
 
 // ---- Field helpers (form values always arrive as strings) ----
 const reqText = (max: number) => z.string().trim().min(1, "Required").max(max);
@@ -109,7 +114,7 @@ export async function addMetricRecord(
   if (!parsed.success) {
     const issue = parsed.error.issues[0];
     const field = FORM_FIELDS[kind].find((f) => f.name === issue.path[0]);
-    return { error: field ? `${field.label}: ${issue.message}` : issue.message };
+    return { error: field ? `${field.label}: ${issue.message}` : issue.message, values: raw, at: Date.now() };
   }
 
   // Session client: RLS also requires the caller to be an admin.
@@ -117,9 +122,9 @@ export async function addMetricRecord(
   const { error } = await supabase.from(table).insert({ ...parsed.data, created_by: admin.id });
   if (error) {
     console.error(`Insert into ${table} failed:`, error.message);
-    return { error: "Could not save the record. Please try again." };
+    return { error: "Could not save the record. Please try again.", values: raw, at: Date.now() };
   }
 
   revalidatePath("/admin/impact");
-  return { ok: true, savedAt: Date.now() };
+  return { ok: true, at: Date.now() };
 }

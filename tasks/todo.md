@@ -95,5 +95,8 @@ Note: Next 16 turned Cache Components on by default. I switched it off in `next.
 - Consider sending admission emails automatically (for example with Resend) instead of copying the message by hand.
 - Consider a Content-Security-Policy header once the set of third-party scripts is final.
 
-### Not yet tested
-Nothing has been tested against a live Supabase project. The real login, accept, password-change and dashboard flows need an end-to-end check once a project is connected.
+### Live end-to-end test (Supabase project `aasqcutsgaejayauqybk`)
+- Both migrations were applied with `supabase db push`, and the admin account was created.
+- A browser test in headless Chrome passed 16 checks: apply → admin accepts → temporary password shown → student is forced to change it → portal → student is blocked from `/admin` → login with the new password. It also covered adding an impact record and rejecting a `javascript:` link.
+- **Bug found and fixed:** after a validation error, the apply and impact forms cleared what the user had typed (React resets forms after an action, and `<select>` inputs didn't refill). Both forms now keep everything the user entered.
+- All test users, applications and records were deleted afterwards.

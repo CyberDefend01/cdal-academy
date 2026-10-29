@@ -43,7 +43,7 @@ export function ApplyForm({
   const selectedCourse = v.course_id ?? defaultCourseId;
 
   return (
-    <form action={formAction} className="space-y-8" noValidate>
+    <form key={state.at} action={formAction} className="space-y-8" noValidate>
       {state.status === "error" && state.message && (
         <div
           role="alert"
