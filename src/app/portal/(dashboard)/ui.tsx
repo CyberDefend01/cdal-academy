@@ -27,7 +27,7 @@ export function ProgressBar({ value }: { value: number }) {
       aria-valuemin={0}
       aria-valuemax={100}
     >
-      <div className="h-full rounded-full bg-cyan-400" style={{ width: `${value}%` }} />
+      <div className="h-full rounded-full bg-brand-400" style={{ width: `${value}%` }} />
     </div>
   );
 }
@@ -42,7 +42,7 @@ export function ComingSoon({ icon: Icon, title, description, items }: {
     <div className="max-w-3xl">
       <PageHeader title={title} description={description} />
       <Card>
-        <Icon className="h-8 w-8 text-cyan-400" aria-hidden />
+        <Icon className="h-8 w-8 text-brand-400" aria-hidden />
         <p className="mt-3 text-slate-300">This section is being prepared. It will include:</p>
         <ul className="mt-3 list-disc space-y-1 pl-5 text-sm text-slate-400">
           {items.map((item) => (

@@ -20,7 +20,7 @@ export default async function CoursesPage() {
   return (
     <div className="mx-auto max-w-6xl px-4 py-16">
       <header className="max-w-2xl">
-        <p className="text-sm font-medium uppercase tracking-widest text-cyan-400">Academy</p>
+        <p className="text-sm font-medium uppercase tracking-widest text-brand-400">Academy</p>
         <h1 className="mt-2 text-3xl font-bold text-white sm:text-4xl">Course catalog</h1>
         <p className="mt-4 text-slate-400">
           Three structured tracks take you from your first security concepts to enterprise-grade
@@ -50,7 +50,7 @@ export default async function CoursesPage() {
               <ul className="mt-5 space-y-2 text-sm text-slate-300">
                 {course.highlights.map((item) => (
                   <li key={item} className="flex gap-2">
-                    <CircleCheck className="mt-0.5 h-4 w-4 shrink-0 text-cyan-400" aria-hidden />
+                    <CircleCheck className="mt-0.5 h-4 w-4 shrink-0 text-brand-400" aria-hidden />
                     {item}
                   </li>
                 ))}
@@ -67,7 +67,7 @@ export default async function CoursesPage() {
 
               <Link
                 href={`/apply?course=${encodeURIComponent(course.slug)}`}
-                className="mt-6 inline-flex items-center justify-center gap-2 rounded-lg bg-cyan-500 px-4 py-2.5 text-sm font-semibold text-navy-950 transition hover:bg-cyan-400"
+                className="mt-6 inline-flex items-center justify-center gap-2 rounded-lg bg-brand-500 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-brand-600"
               >
                 Apply for {course.short_title} <ArrowRight className="h-4 w-4" aria-hidden />
               </Link>

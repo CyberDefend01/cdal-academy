@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { LogOut, ShieldCheck } from "lucide-react";
+import { LogOut } from "lucide-react";
+import { Logo } from "@/components/logo";
 import { requireStudent } from "@/lib/auth";
 import { signOut } from "@/lib/auth-actions";
 import { PortalNav } from "./portal-nav";
@@ -17,7 +18,7 @@ export default async function PortalLayout({ children }: { children: React.React
     <div className="flex min-h-screen flex-col md:flex-row">
       <aside className="flex shrink-0 flex-col border-b border-white/10 bg-navy-900 md:sticky md:top-0 md:h-screen md:w-72 md:border-r md:border-b-0">
         <Link href="/portal" className="flex items-center gap-2 px-5 py-4 font-semibold text-white">
-          <ShieldCheck className="h-6 w-6 text-cyan-400" aria-hidden />
+          <Logo size={32} />
           Student Portal
         </Link>
         <PortalNav />

@@ -54,7 +54,7 @@ export default async function ImpactPage({ searchParams }: PageProps<"/admin/imp
               href={`/admin/impact?tab=${kind}`}
               className={`-mb-px flex items-center gap-2 border-b-2 px-3 py-2.5 text-sm whitespace-nowrap transition ${
                 kind === active
-                  ? "border-cyan-400 text-cyan-300"
+                  ? "border-brand-400 text-brand-300"
                   : "border-transparent text-slate-400 hover:text-white"
               }`}
             >

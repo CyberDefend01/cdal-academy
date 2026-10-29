@@ -45,8 +45,8 @@ export default async function PortalOverview() {
   return (
     <div className="space-y-6">
       {/* Welcome banner */}
-      <section className="rounded-2xl border border-cyan-500/20 bg-gradient-to-br from-navy-700 to-navy-900 p-6 sm:p-8">
-        <p className="text-sm text-cyan-300">Welcome back</p>
+      <section className="rounded-2xl border border-brand-500/20 bg-gradient-to-br from-navy-700 to-navy-900 p-6 sm:p-8">
+        <p className="text-sm text-brand-300">Welcome back</p>
         <h1 className="mt-1 text-2xl font-bold text-white sm:text-3xl">Hello, {firstName}</h1>
         {current ? (
           <div className="mt-5 max-w-xl">
@@ -55,7 +55,7 @@ export default async function PortalOverview() {
                 {current.courses.title}
                 {current.cohort && <span className="text-slate-400"> · {current.cohort}</span>}
               </span>
-              <span className="text-cyan-300">{current.progress}% complete</span>
+              <span className="text-brand-300">{current.progress}% complete</span>
             </div>
             <div className="mt-2">
               <ProgressBar value={current.progress} />
@@ -70,7 +70,7 @@ export default async function PortalOverview() {
       <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
         {stats.map(({ label, value, icon: Icon }) => (
           <div key={label} className="rounded-xl border border-white/10 bg-navy-900 p-4">
-            <Icon className="h-5 w-5 text-cyan-400" aria-hidden />
+            <Icon className="h-5 w-5 text-brand-400" aria-hidden />
             <p className="mt-3 text-2xl font-bold text-white">{value}</p>
             <p className="text-xs text-slate-400">{label}</p>
           </div>
@@ -109,7 +109,7 @@ export default async function PortalOverview() {
                   </div>
                   <Link
                     href={`/apply?course=${encodeURIComponent(course.slug)}`}
-                    className="inline-flex shrink-0 items-center gap-1 text-sm text-cyan-400 hover:underline"
+                    className="inline-flex shrink-0 items-center gap-1 text-sm text-brand-400 hover:underline"
                   >
                     Apply <ArrowRight className="h-4 w-4" aria-hidden />
                   </Link>

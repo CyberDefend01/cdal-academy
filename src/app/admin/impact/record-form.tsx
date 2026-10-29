@@ -6,7 +6,7 @@ import { addMetricRecord, type MetricFormState } from "./actions";
 import { FORM_FIELDS, type MetricKind } from "./fields";
 
 const inputClass =
-  "mt-1.5 w-full rounded-lg border border-white/10 bg-navy-950 px-3 py-2 text-sm text-white focus:border-cyan-400 focus:outline-none focus:ring-1 focus:ring-cyan-400";
+  "mt-1.5 w-full rounded-lg border border-white/10 bg-navy-950 px-3 py-2 text-sm text-white focus:border-brand-400 focus:outline-none focus:ring-1 focus:ring-brand-400";
 
 export function RecordForm({ kind }: { kind: MetricKind }) {
   const [state, formAction, pending] = useActionState<MetricFormState, FormData>(
@@ -17,7 +17,7 @@ export function RecordForm({ kind }: { kind: MetricKind }) {
 
   return (
     <details className="rounded-xl border border-white/10 bg-navy-900 [&_summary::-webkit-details-marker]:hidden">
-      <summary className="flex cursor-pointer items-center gap-2 px-5 py-3 text-sm font-medium text-cyan-300">
+      <summary className="flex cursor-pointer items-center gap-2 px-5 py-3 text-sm font-medium text-brand-300">
         <Plus className="h-4 w-4" aria-hidden /> Add record
       </summary>
       <form key={state.at} action={formAction} className="grid gap-4 border-t border-white/10 p-5 sm:grid-cols-2">
@@ -25,7 +25,7 @@ export function RecordForm({ kind }: { kind: MetricKind }) {
           if (field.type === "checkbox") {
             return (
               <label key={field.name} className="flex items-center gap-2 text-sm text-slate-300 sm:col-span-2">
-                <input type="checkbox" name={field.name} defaultChecked={v[field.name] === "on"} className="accent-cyan-400" />
+                <input type="checkbox" name={field.name} defaultChecked={v[field.name] === "on"} className="accent-brand-400" />
                 {field.label}
               </label>
             );
@@ -66,7 +66,7 @@ export function RecordForm({ kind }: { kind: MetricKind }) {
           <button
             type="submit"
             disabled={pending}
-            className="rounded-lg bg-cyan-500 px-4 py-2 text-sm font-semibold text-navy-950 hover:bg-cyan-400 disabled:opacity-60"
+            className="rounded-lg bg-brand-500 px-4 py-2 text-sm font-semibold text-white hover:bg-brand-600 disabled:opacity-60"
           >
             {pending ? "Saving..." : "Save record"}
           </button>

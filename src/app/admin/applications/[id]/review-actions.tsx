@@ -151,7 +151,7 @@ function CredentialsModal({ credentials, onClose }: { credentials: Credentials; 
           </button>
           <button
             onClick={onClose}
-            className="rounded-lg bg-cyan-500 px-4 py-2 text-sm font-semibold text-navy-950 hover:bg-cyan-400"
+            className="rounded-lg bg-brand-500 px-4 py-2 text-sm font-semibold text-white hover:bg-brand-600"
           >
             Done
           </button>

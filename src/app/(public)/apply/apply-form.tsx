@@ -11,7 +11,7 @@ type CourseOption = { id: string; title: string; summary: string; level: string 
 const initialState: ApplyState = { status: "idle" };
 
 const inputClass =
-  "mt-1.5 w-full rounded-lg border border-white/10 bg-navy-950 px-3 py-2.5 text-sm text-white placeholder:text-slate-500 focus:border-cyan-400 focus:outline-none focus:ring-1 focus:ring-cyan-400";
+  "mt-1.5 w-full rounded-lg border border-white/10 bg-navy-950 px-3 py-2.5 text-sm text-white placeholder:text-slate-500 focus:border-brand-400 focus:outline-none focus:ring-1 focus:ring-brand-400";
 
 export function ApplyForm({
   courses,
@@ -31,7 +31,7 @@ export function ApplyForm({
           Thank you for applying to Cyber Defend Academy. Our admissions team will review your
           application and contact you by email with the outcome.
         </p>
-        <Link href="/courses" className="mt-6 inline-block text-cyan-400 hover:underline">
+        <Link href="/courses" className="mt-6 inline-block text-brand-400 hover:underline">
           Back to courses
         </Link>
       </div>
@@ -68,14 +68,14 @@ export function ApplyForm({
           {courses.map((course) => (
             <label
               key={course.id}
-              className="flex cursor-pointer gap-3 rounded-xl border border-white/10 bg-navy-950 p-4 transition has-[:checked]:border-cyan-400 has-[:checked]:bg-cyan-400/5"
+              className="flex cursor-pointer gap-3 rounded-xl border border-white/10 bg-navy-950 p-4 transition has-[:checked]:border-brand-400 has-[:checked]:bg-brand-400/5"
             >
               <input
                 type="radio"
                 name="course_id"
                 value={course.id}
                 defaultChecked={course.id === selectedCourse}
-                className="mt-1 accent-cyan-400"
+                className="mt-1 accent-brand-400"
                 required
               />
               <span>
@@ -136,7 +136,7 @@ export function ApplyForm({
       <button
         type="submit"
         disabled={pending}
-        className="w-full rounded-lg bg-cyan-500 px-5 py-3 font-semibold text-navy-950 transition hover:bg-cyan-400 disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto"
+        className="w-full rounded-lg bg-brand-500 px-5 py-3 font-semibold text-white transition hover:bg-brand-600 disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto"
       >
         {pending ? "Submitting..." : "Submit application"}
       </button>

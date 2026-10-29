@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { KeyRound } from "lucide-react";
 import { requireStudent } from "@/lib/auth";
+import { CONTACT_EMAIL } from "@/lib/site";
 import { Card, PageHeader } from "../ui";
 
 export const metadata: Metadata = { title: "Account & Help" };
@@ -38,8 +39,8 @@ export default async function AccountPage() {
       <Card title="Need help?">
         <p className="text-sm text-slate-400">
           For questions about your admission, courses or account, email us at{" "}
-          <a href="mailto:info@cyberdefendafrica.org" className="text-cyan-400 hover:underline">
-            info@cyberdefendafrica.org
+          <a href={`mailto:${CONTACT_EMAIL}`} className="text-brand-400 hover:underline">
+            {CONTACT_EMAIL}
           </a>
           .
         </p>

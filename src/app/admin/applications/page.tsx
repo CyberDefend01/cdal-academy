@@ -54,7 +54,7 @@ export default async function ApplicationsPage({ searchParams }: PageProps<"/adm
             href={`/admin/applications?status=${f}`}
             className={`rounded-full px-3 py-1 text-sm ring-1 transition ${
               f === filter
-                ? "bg-cyan-500/10 text-cyan-300 ring-cyan-500/40"
+                ? "bg-brand-500/10 text-brand-300 ring-brand-500/40"
                 : "text-slate-300 ring-white/10 hover:bg-white/5"
             }`}
           >
@@ -96,7 +96,7 @@ export default async function ApplicationsPage({ searchParams }: PageProps<"/adm
                     <StatusBadge status={app.status} />
                   </td>
                   <td className="px-4 py-3 text-right">
-                    <Link href={`/admin/applications/${app.id}`} className="text-cyan-400 hover:underline">
+                    <Link href={`/admin/applications/${app.id}`} className="text-brand-400 hover:underline">
                       Review
                     </Link>
                   </td>

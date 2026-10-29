@@ -66,7 +66,7 @@ export default async function ApplicationDetailPage({ params }: PageProps<"/admi
         <h1 className="text-2xl font-bold text-white">{app.full_name}</h1>
         <StatusBadge status={app.status} />
       </div>
-      <p className="mt-1 text-cyan-300">{app.courses?.title}</p>
+      <p className="mt-1 text-brand-300">{app.courses?.title}</p>
 
       <dl className="mt-6 grid gap-x-6 gap-y-4 rounded-xl border border-white/10 bg-navy-900 p-6 sm:grid-cols-2">
         {details.map(([label, value]) => (

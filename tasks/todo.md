@@ -67,6 +67,29 @@ Note: Next 16 turned Cache Components on by default. I switched it off in `next.
 - [x] Security review (no secrets in client bundles, RLS checked, server-side auth checks); 2 issues found and fixed (see below)
 - [x] Review section below
 
+## Phase 6: Modern animated redesign, SignalSOC Africa, contact details
+
+### Decisions (please confirm)
+- **Animations use plain CSS plus one small helper component.** No new animation library, which keeps the site fast. Everything animated respects the visitor's "reduce motion" setting.
+- **Brand colour:** switch the cyan accent to the royal blue from the logo, with a cyan highlight for glows.
+- **Services:** I'll describe only what you've told me about: **Cyber Defend Academy** (training) and **SignalSOC Africa**. I won't invent other services.
+- **SignalSOC wording:** your text says the organisation *proposes* to build SignalSOC Africa, so the site will label it **"In development · Open source"** rather than present it as a finished product.
+
+### Tasks
+- [x] Brand colours: logo blue as the main accent, cyan for glows (one place in `globals.css`)
+- [x] Animation building blocks in CSS: moving grid, scan line, glow pulse, typing cursor, fade-up on scroll; turned off for visitors who prefer reduced motion
+- [x] Small `Reveal` component that fades sections in as you scroll
+- [x] Hero: animated cyber grid background, logo with a pulsing glow, terminal that types out lines, number counters that count up
+- [x] Cards: glowing border on hover, slight lift (courses, features, services)
+- [x] **Services section** on the landing page: Academy + SignalSOC Africa cards
+- [x] **`/signalsoc` page:** the problem, what the tool does, how it will be tested (200+ alerts), "human analysts stay in charge", open source, based in Gombe State, Nigeria
+- [x] Add "SignalSOC" to the top navigation
+- [x] Contact: replace the email with `info@cyberdefendafricaltd.org` everywhere (3 places), add an Instagram link (@cyberdefendafrica) in the footer and contact section
+- [x] Footer redesign: logo, short description, links, contact, Instagram
+- [x] Build, lint, screenshots (desktop and phone), security check (external links use `rel="noopener noreferrer"`)
+- [x] Commit and push (the logo changes from the previous step are included)
+- [x] Extra: impact strip only shows once students, graduates or placements are above zero; scan line hidden when motion is reduced; header and footer include a phone menu and Instagram
+
 ## Review
 
 ### What was built

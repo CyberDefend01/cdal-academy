@@ -15,7 +15,7 @@ export default async function ChangePasswordPage() {
   return (
     <div className="mx-auto w-full max-w-md px-4 py-20">
       <div className="rounded-2xl border border-white/10 bg-navy-900 p-8">
-        <KeyRound className="h-8 w-8 text-cyan-400" aria-hidden />
+        <KeyRound className="h-8 w-8 text-brand-400" aria-hidden />
         <h1 className="mt-4 text-2xl font-bold text-white">
           {student.mustChangePassword ? "Set your password" : "Change password"}
         </h1>

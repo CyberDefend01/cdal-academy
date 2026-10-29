@@ -33,7 +33,7 @@ export default async function MyCoursesPage() {
             </div>
             <div className="mt-4 flex items-center gap-3">
               <ProgressBar value={e.progress} />
-              <span className="w-12 text-right text-sm text-cyan-300">{e.progress}%</span>
+              <span className="w-12 text-right text-sm text-brand-300">{e.progress}%</span>
             </div>
           </Card>
         ))}

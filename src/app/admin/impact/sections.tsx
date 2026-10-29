@@ -48,7 +48,7 @@ function RecordsTable({ headers, rows }: { headers: string[]; rows: React.ReactN
 function ExternalLink({ href }: { href: string | null }) {
   if (!href) return null;
   return (
-    <a href={href} target="_blank" rel="noopener noreferrer" className="text-cyan-400 hover:underline">
+    <a href={href} target="_blank" rel="noopener noreferrer" className="text-brand-400 hover:underline">
       Open
     </a>
   );

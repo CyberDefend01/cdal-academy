@@ -5,20 +5,161 @@
   --font-mono: var(--font-geist-mono);
 }
 
-/* Institutional dark navy palette */
 @theme {
+  /* Institutional dark navy palette */
   --color-navy-950: #040a17;
   --color-navy-900: #08132a;
   --color-navy-800: #0d1c3b;
   --color-navy-700: #15284f;
   --color-navy-600: #1f3766;
+
+  /* Brand blue, taken from the Cyber Defend Academy logo */
+  --color-brand-200: #bcd6f8;
+  --color-brand-300: #86b6f1;
+  --color-brand-400: #4c93e9;
+  --color-brand-500: #1d6cd4;
+  --color-brand-600: #1557b2;
+
+  /* Cyan, used only for glows and highlights */
+  --color-glow: #22d3ee;
+
+  --animate-grid-pan: grid-pan 24s linear infinite;
+  --animate-scan: scan 7s ease-in-out infinite;
+  --animate-glow-pulse: glow-pulse 4s ease-in-out infinite;
+  --animate-spin-slow: spin 40s linear infinite;
+  --animate-spin-slower: spin 70s linear infinite reverse;
+  --animate-blink: blink 1s step-end infinite;
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-ping-slow: ping 2.5s cubic-bezier(0, 0, 0.2, 1) infinite;
+  --animate-flow: flow 2.4s linear infinite;
+
+  @keyframes flow {
+    from {
+      left: 0%;
+      opacity: 0;
+    }
+    15%,
+    85% {
+      opacity: 1;
+    }
+    to {
+      left: 100%;
+      opacity: 0;
+    }
+  }
+
+  @keyframes grid-pan {
+    to {
+      background-position: 48px 48px;
+    }
+  }
+  @keyframes scan {
+    0%,
+    100% {
+      transform: translateY(-10%);
+      opacity: 0;
+    }
+    15%,
+    85% {
+      opacity: 1;
+    }
+    50% {
+      transform: translateY(1100%);
+    }
+  }
+  @keyframes glow-pulse {
+    0%,
+    100% {
+      filter: drop-shadow(0 0 14px rgb(29 108 212 / 0.55));
+    }
+    50% {
+      filter: drop-shadow(0 0 32px rgb(34 211 238 / 0.55));
+    }
+  }
+  @keyframes blink {
+    50% {
+      opacity: 0;
+    }
+  }
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
 }
 
 html {
   color-scheme: dark;
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--color-navy-950);
   color: var(--color-slate-200);
+}
+
+/* Faint cyber grid, faded out towards the edges */
+.cyber-grid {
+  background-image:
+    linear-gradient(rgb(76 147 233 / 0.09) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(76 147 233 / 0.09) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
+}
+
+/* Card with a glowing border on hover */
+.glow-card {
+  position: relative;
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+.glow-card:hover {
+  transform: translateY(-4px);
+  border-color: rgb(76 147 233 / 0.5);
+  box-shadow:
+    0 0 0 1px rgb(76 147 233 / 0.15),
+    0 18px 40px -12px rgb(29 108 212 / 0.45);
+}
+
+/* Gradient text for headline accents */
+.text-gradient {
+  background: linear-gradient(90deg, var(--color-brand-300), var(--color-glow));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Scroll reveal (toggled by the <Reveal> component) */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 0.7s ease,
+    transform 0.7s ease;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
 }

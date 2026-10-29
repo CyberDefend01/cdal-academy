@@ -21,7 +21,7 @@ export function AdminNav() {
             key={href}
             href={href}
             className={`flex items-center gap-3 rounded-lg px-3 py-2 text-sm whitespace-nowrap transition ${
-              active ? "bg-cyan-500/10 text-cyan-300" : "text-slate-300 hover:bg-white/5 hover:text-white"
+              active ? "bg-brand-500/10 text-brand-300" : "text-slate-300 hover:bg-white/5 hover:text-white"
             }`}
           >
             <Icon className="h-4 w-4" aria-hidden />

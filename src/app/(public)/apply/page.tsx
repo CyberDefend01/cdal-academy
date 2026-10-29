@@ -15,7 +15,7 @@ export default async function ApplyPage({ searchParams }: PageProps<"/apply">) {
   return (
     <div className="mx-auto max-w-3xl px-4 py-16">
       <header>
-        <p className="text-sm font-medium uppercase tracking-widest text-cyan-400">Admissions</p>
+        <p className="text-sm font-medium uppercase tracking-widest text-brand-400">Admissions</p>
         <h1 className="mt-2 text-3xl font-bold text-white sm:text-4xl">Apply to the Academy</h1>
         <p className="mt-4 text-slate-400">
           Choose a course and tell us about yourself. Applications are reviewed by our admissions

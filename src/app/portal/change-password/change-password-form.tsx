@@ -5,7 +5,7 @@ import { CircleAlert } from "lucide-react";
 import { changePassword, type ChangePasswordState } from "./actions";
 
 const inputClass =
-  "mt-1.5 w-full rounded-lg border border-white/10 bg-navy-950 px-3 py-2.5 text-sm text-white focus:border-cyan-400 focus:outline-none focus:ring-1 focus:ring-cyan-400";
+  "mt-1.5 w-full rounded-lg border border-white/10 bg-navy-950 px-3 py-2.5 text-sm text-white focus:border-brand-400 focus:outline-none focus:ring-1 focus:ring-brand-400";
 
 export function ChangePasswordForm() {
   const [state, formAction, pending] = useActionState<ChangePasswordState, FormData>(changePassword, {});
@@ -35,7 +35,7 @@ export function ChangePasswordForm() {
       <button
         type="submit"
         disabled={pending}
-        className="w-full rounded-lg bg-cyan-500 px-5 py-2.5 font-semibold text-navy-950 transition hover:bg-cyan-400 disabled:opacity-60"
+        className="w-full rounded-lg bg-brand-500 px-5 py-2.5 font-semibold text-white transition hover:bg-brand-600 disabled:opacity-60"
       >
         {pending ? "Saving..." : "Set new password"}
       </button>
